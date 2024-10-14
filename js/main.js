@@ -39,12 +39,13 @@ const isUserAgeValid20 = userAge < 18 && userAge > 0;
 const isUserAgeValid40 = userAge > 65;
 
 if (isUserAgeValid20) {
-	let outputMessage = ticketPrice - discountPrice20;
+	outputMessage = ticketPrice - discountPrice20;
 }
 
 if (isUserAgeValid40) {
-	let outputMessage = ticketPrice - discountPrice40;
+	outputMessage = ticketPrice - discountPrice40;
 }
+console.log(outputMessage);
 
 //OUTPUT
 //stampo il prezzo dedl biglietto
