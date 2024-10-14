@@ -8,45 +8,69 @@
 
 //PROCEDURA:
 
-//RACCOLTA DATI
+//RACCOLTA DATI:
+
 //chiedo il numero di km che vuole percorrere
 const totKm = parseInt(prompt("Quanti km vuoi percorrere?"));
 //chiedo l'età del passeggero
-let userAge = parseInt(prompt("Quanti anni hai?"));
+const userAge = parseInt(prompt("Quanti anni hai?"));
 //preparo una variabile di output
 let outputMessage;
 
+//stampo la variabile km e età e il loro tipo
 console.log(totKm, userAge);
 console.log(typeof totKm, typeof userAge);
 
-//ELABORAZIONE
+//ELABORAZIONE:
 
-//calcolo il prezzo del biglietto
+//calcolo il prezzo del biglietto in base a quanti km vuole fare
 const ticketPrice = totKm * 0.21;
+
+//stampo la variabile prezzo biglietto e il suo tipo
 console.log(ticketPrice);
 console.log(typeof ticketPrice);
 
-//controllo l'età del passeggero
 //calcolo il prezzo del biglietto in base allo sconto:
-//se l'età < 18 applico il 20%
+
+//calcolo lo sconto del 20%
 const discountPrice20 = (ticketPrice * 2) / 100;
+//calcolo lo sconto del 40%
 const discountPrice40 = (ticketPrice * 4) / 100;
 
+//stampo lo sconto del 20% e del 40%
 console.log(discountPrice20);
 console.log(discountPrice40);
 
-const isUserAgeValid20 = userAge < 18 && userAge > 0;
+//dichiaro quando è valido lo sconto del 20%
+const isUserAgeValid20 = userAge > 0 && userAge < 18;
+//dichiaro quando è valido lo sconto del 40%
 const isUserAgeValid40 = userAge > 65;
 
+//calcolo il prezzo scontato se l'età < 18
 if (isUserAgeValid20) {
 	outputMessage = ticketPrice - discountPrice20;
 }
 
+//calcolo il prezzo scontato se l'età > 65
 if (isUserAgeValid40) {
 	outputMessage = ticketPrice - discountPrice40;
 }
-console.log(outputMessage);
 
-//OUTPUT
-//stampo il prezzo dedl biglietto
+//calcolo il prezzo scontato se l'età non è ne <18 ne >65
+if (!isUserAgeValid20 && !isUserAgeValid40) {
+	outputMessage = ticketPrice;
+}
+
+//Scrivo messaggio di output e alert se l'età inserita è <0 cioè non è valida
+const isUserAgeInvalid = userAge < 0;
+if (isUserAgeInvalid) {
+	outputMessage = "Non puoi inserire questa età";
+	alert("Questa età non può essere inserita");
+}
+
+//OUTPUT:
+
+//stampo il messaggio di output cioè il prezzo del biglietto
+console.log(outputMessage);
+//invio messaggio di alert con prezzo del biglietto da pagare
 alert(outputMessage);
