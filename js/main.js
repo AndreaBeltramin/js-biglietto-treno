@@ -68,6 +68,12 @@ if (isUserAgeInvalid) {
 	alert("Questa età non può essere inserita");
 }
 
+//Scrivo messaggio di output e alert se i km inseriti sono <0 cioè non è valido
+const isKmInvalid = totKm < 0;
+if (isKmInvalid) {
+	outputMessage = "Non puoi inserire questi Km";
+	alert("Questi Km non possono essere inseriti");
+}
 //OUTPUT:
 
 //stampo il messaggio di output cioè il prezzo del biglietto
