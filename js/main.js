@@ -12,7 +12,7 @@
 //chiedo il numero di km che vuole percorrere
 const totKm = parseInt(prompt("Quanti km vuoi percorrere?"));
 //chiedo l'età del passeggero
-const userAge = parseInt(prompt("Quanti anni hai?"));
+let userAge = parseInt(prompt("Quanti anni hai?"));
 //preparo una variabile di output
 let outputMessage;
 
@@ -29,23 +29,23 @@ console.log(typeof ticketPrice);
 //controllo l'età del passeggero
 //calcolo il prezzo del biglietto in base allo sconto:
 //se l'età < 18 applico il 20%
-const discountPrice20 = ticketPrice - ticketPrice * 0.02;
-const discountPrice40 = ticketPrice - ticketPrice * 0.04;
+const discountPrice20 = (ticketPrice * 2) / 100;
+const discountPrice40 = (ticketPrice * 4) / 100;
 
 console.log(discountPrice20);
 console.log(discountPrice40);
 
-if (userAge < 18) {
-	let outputMessage = discountPrice20;
+const isUserAgeValid20 = userAge < 18 && userAge > 0;
+const isUserAgeValid40 = userAge > 65;
+
+if (isUserAgeValid20) {
+	let outputMessage = ticketPrice - discountPrice20;
 }
 
-console.log(outputMessage);
-
-//if (userAge > 65 && userAge < 100) {
-//	let ticketDiscountPrice = ticketPrice - 1;
-//}
-
-//se l'età > 65 applico il 40%
+if (isUserAgeValid40) {
+	let outputMessage = ticketPrice - discountPrice40;
+}
 
 //OUTPUT
 //stampo il prezzo dedl biglietto
+alert(outputMessage);
